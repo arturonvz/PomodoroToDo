@@ -47,11 +47,12 @@ namespace Desktop_Pomodoro_Tracker
                 string hideScrollbarsScript = $"var style = document.createElement('style'); style.innerHTML = '{hideScrollbarsCss}'; document.head.appendChild(style);";
                 await webView21.ExecuteScriptAsync(hideScrollbarsScript);
 
-                // Inject CSS to change --button-bg to green
-                string changeButtonBgCss = ":root { --button-bg: green !important; }";
-                string changeButtonBgScript = $"var style = document.createElement('style'); style.innerHTML = '{changeButtonBgCss}'; document.head.appendChild(style);";
-                await webView21.ExecuteScriptAsync(changeButtonBgScript);
+                // Change background color to magenta
+                //string changeBackgroundColorScript = "document.body.style.backgroundColor = '#ff00ff';";
+                //string changeBackgroundColorScript = "document.body.style.backgroundColor = transparent !important;";
+                //await webView21.ExecuteScriptAsync(changeBackgroundColorScript);
             }
         }
+
     }
 }
