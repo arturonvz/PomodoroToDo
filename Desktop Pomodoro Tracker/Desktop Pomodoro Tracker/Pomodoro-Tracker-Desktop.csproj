@@ -3,11 +3,13 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>Desktop_Pomodoro_Tracker</RootNamespace>
+    <RootNamespace>Pomodoro_Tracker_Desktop</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>pomodoro-tracker-icon.ico</ApplicationIcon>
+    <Authors>$(AssemblyName)</Authors>
+    <Company>$(Authors)</Company>
   </PropertyGroup>
 
   <ItemGroup>
