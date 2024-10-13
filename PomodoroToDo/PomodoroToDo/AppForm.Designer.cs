@@ -52,7 +52,7 @@
             webViewPomodoroTracker.Location = new Point(0, 70);
             webViewPomodoroTracker.Margin = new Padding(0);
             webViewPomodoroTracker.Name = "webViewPomodoroTracker";
-            webViewPomodoroTracker.Size = new Size(392, 197);
+            webViewPomodoroTracker.Size = new Size(378, 197);
             webViewPomodoroTracker.Source = new Uri("https://pomodoro-tracker.com/", UriKind.Absolute);
             webViewPomodoroTracker.TabIndex = 0;
             webViewPomodoroTracker.ZoomFactor = 0.7D;
@@ -70,7 +70,7 @@
             lblCurrentMode.Location = new Point(0, 0);
             lblCurrentMode.Margin = new Padding(5);
             lblCurrentMode.Name = "lblCurrentMode";
-            lblCurrentMode.Size = new Size(386, 64);
+            lblCurrentMode.Size = new Size(372, 64);
             lblCurrentMode.TabIndex = 1;
             lblCurrentMode.Text = "POMODORO";
             lblCurrentMode.TextAlign = ContentAlignment.MiddleCenter;
@@ -91,7 +91,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 197F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(392, 561);
+            tableLayoutPanel1.Size = new Size(378, 561);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // webViewToDo
@@ -103,7 +103,7 @@
             webViewToDo.Location = new Point(0, 267);
             webViewToDo.Margin = new Padding(0);
             webViewToDo.Name = "webViewToDo";
-            webViewToDo.Size = new Size(392, 294);
+            webViewToDo.Size = new Size(378, 294);
             webViewToDo.Source = new Uri("https://to-do.live.com/tasks/AQMkADAwATM3ZmYAZS00MjNhLTZmNWItMDACLTAwCgAuAAADHznh97RuwEaTylqDMZTK3wEAiVSD-def2E_3fkwt9tLmgQACye-BYgAAAA==", UriKind.Absolute);
             webViewToDo.TabIndex = 4;
             webViewToDo.ZoomFactor = 1D;
@@ -115,7 +115,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(386, 64);
+            panel1.Size = new Size(372, 64);
             panel1.TabIndex = 3;
             // 
             // contextMenu
@@ -128,12 +128,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 49, 49);
-            ClientSize = new Size(392, 561);
+            ClientSize = new Size(378, 561);
             Controls.Add(tableLayoutPanel1);
             ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(408, 1200);
-            MinimumSize = new Size(408, 600);
+            MinimumSize = new Size(0, 600);
             Name = "AppForm";
             Text = "PomodoroToDo";
             Load += Form1_Load;
