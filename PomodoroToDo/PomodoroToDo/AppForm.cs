@@ -11,6 +11,10 @@ namespace Desktop_Pomodoro_Tracker
         Color colorPomodoro;
         Color colorShort;
         Color colorLong;
+        Color darkenedRed = Color.DarkRed;
+        Color darkenedGreen = Color.DarkGreen;
+        Color darkenedBlue = Color.DarkBlue;
+
         public AppForm()
         {
             InitializeComponent();
@@ -21,12 +25,10 @@ namespace Desktop_Pomodoro_Tracker
         private async void InitializeWebView2()
         {
             await webViewPomodoroTracker.EnsureCoreWebView2Async(null);
-            webViewPomodoroTracker.CoreWebView2.PermissionRequested += CoreWebView2_PermissionRequested;
-            webViewPomodoroTracker.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
-            webViewPomodoroTracker.Source = new Uri("https://pomodoro-tracker.com/");
+            webViewPomodoroTracker.CoreWebView2.PermissionRequested += WebViewPomodoroTracker_PermissionRequested;
         }
 
-        private void CoreWebView2_PermissionRequested(object sender, CoreWebView2PermissionRequestedEventArgs e)
+        private void WebViewPomodoroTracker_PermissionRequested(object sender, CoreWebView2PermissionRequestedEventArgs e)
         {
             Console.WriteLine($"Permission Requested: {e.PermissionKind}");
 
@@ -43,9 +45,11 @@ namespace Desktop_Pomodoro_Tracker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Buscar la pantalla más a la izquierda
+            Screen leftScreen = Screen.AllScreens.OrderBy(screen => screen.Bounds.X).First();
+
             // Ubicar el formulario en la esquina superior izquierda de la pantalla (0,0)
             // y ajustar la altura al alto de la pantalla izquierda menos la barra de tareas.
-            Screen leftScreen = Screen.AllScreens[0]; // Selecciona la pantalla de la izquierda
             this.Location = new Point(leftScreen.Bounds.X, leftScreen.Bounds.Y);
             this.Height = leftScreen.WorkingArea.Height; // WorkingArea excluye la barra de tareas
             this.Width = 538; // Ajusta el ancho del formulario a 538 píxeles
@@ -56,6 +60,14 @@ namespace Desktop_Pomodoro_Tracker
             contextMenu.Items.Add("Short Break Color", null, ShortBreak_Click);
             contextMenu.Items.Add("Long Break Color", null, LongBreak_Click);
 
+            // DarkenedColors
+            colorPomodoro = DarkenColor(ColorTranslator.FromHtml("#a94442"), 0.7);
+            colorShort = DarkenColor(ColorTranslator.FromHtml("#388f38"), 0.7);
+            colorLong = DarkenColor(ColorTranslator.FromHtml("#337ab7"), 0.7);
+            darkenedRed = DarkenColor(ColorTranslator.FromHtml("#a94442"), 0.7);
+            darkenedGreen = DarkenColor(ColorTranslator.FromHtml("#388f38"), 0.7);
+            darkenedBlue = DarkenColor(ColorTranslator.FromHtml("#337ab7"), 0.7);
+
             // Asignar el ContextMenuStrip al label
             lblCurrentMode.ContextMenuStrip = contextMenu;
         }
@@ -64,25 +76,25 @@ namespace Desktop_Pomodoro_Tracker
         {
             lblCurrentMode.BackColor = Color.Transparent;
             //lblCurrentMode.Text = "FOCUS TIME";
-            this.BackColor = ColorTranslator.FromHtml("#a94442"); // Rojo
+            this.BackColor = darkenedRed; // Rojo
         }
 
         private void ShortBreak_Click(object sender, EventArgs e)
         {
             lblCurrentMode.BackColor = Color.Transparent;
             //lblCurrentMode.Text = "DESCANSO CORTO";
-            this.BackColor = ColorTranslator.FromHtml("#388f38"); // Verde
+            this.BackColor = darkenedGreen; // Verde
         }
 
         private void LongBreak_Click(object sender, EventArgs e)
         {
             lblCurrentMode.BackColor = Color.Transparent;
             //lblCurrentMode.Text = "DESCANSO LARGO";
-            this.BackColor = ColorTranslator.FromHtml("#181818"); // Azul
+            this.BackColor = darkenedBlue; // Azul
         }
 
 
-        private async void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        private async void WebViewPomodoroTracker_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             if (e.IsSuccess)
             {
@@ -218,20 +230,17 @@ namespace Desktop_Pomodoro_Tracker
                             {
                                 case "pomodoro":
                                     lblCurrentMode.Text = "FOCUS TIME";
-                                    this.BackColor = ColorTranslator.FromHtml("#181818"); // Fondo oscuro para el panel
-                                    Color darkenedRed = DarkenColor(ColorTranslator.FromHtml("#a94442"), 0.7);
+                                    this.BackColor = darkenedRed; // Fondo oscuro para el panel
                                     lblCurrentMode.BackColor = darkenedRed;
                                     break;
                                 case "short":
                                     lblCurrentMode.Text = "DESCANSO CORTO";
-                                    this.BackColor = ColorTranslator.FromHtml("#181818"); // Fondo oscuro para el panel
-                                    Color darkenedGreen = DarkenColor(ColorTranslator.FromHtml("#388f38"), 0.7);
+                                    this.BackColor = darkenedGreen; // Fondo oscuro para el panel
                                     lblCurrentMode.BackColor = darkenedGreen;
                                     break;
                                 case "long":
                                     lblCurrentMode.Text = "DESCANSO LARGO";
-                                    this.BackColor = ColorTranslator.FromHtml("#181818"); // Fondo oscuro para el panel
-                                    Color darkenedBlue = DarkenColor(ColorTranslator.FromHtml("#337ab7"), 0.7);
+                                    this.BackColor = darkenedBlue; // Fondo oscuro para el panel
                                     lblCurrentMode.BackColor = darkenedBlue;
                                     break;
                                 default:
@@ -248,7 +257,7 @@ namespace Desktop_Pomodoro_Tracker
             }
         }
 
-        private void lblCurrentMode_Click(object sender, EventArgs e)
+        private void lblCurrentMode_DoubleClick(object sender, EventArgs e)
         {
             using (ColorDialog colorDialog = new ColorDialog())
             {
