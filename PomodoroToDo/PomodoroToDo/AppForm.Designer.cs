@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             webViewPomodoroTracker = new Microsoft.Web.WebView2.WinForms.WebView2();
-            timer1 = new System.Windows.Forms.Timer(components);
+            tmrGetCurrentMode = new System.Windows.Forms.Timer(components);
             lblCurrentMode = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
@@ -57,17 +57,17 @@
             webViewPomodoroTracker.Location = new Point(3, 3);
             webViewPomodoroTracker.Margin = new Padding(0);
             webViewPomodoroTracker.Name = "webViewPomodoroTracker";
-            webViewPomodoroTracker.Size = new Size(660, 94);
+            webViewPomodoroTracker.Size = new Size(660, 92);
             webViewPomodoroTracker.Source = new Uri("https://pomodoro-tracker.com/", UriKind.Absolute);
             webViewPomodoroTracker.TabIndex = 0;
             webViewPomodoroTracker.ZoomFactor = 0.7D;
             webViewPomodoroTracker.NavigationCompleted += WebViewPomodoroTracker_NavigationCompleted;
             // 
-            // timer1
+            // tmrGetCurrentMode
             // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            tmrGetCurrentMode.Enabled = true;
+            tmrGetCurrentMode.Interval = 1000;
+            tmrGetCurrentMode.Tick += tmrGetCurrentMode_Tick;
             // 
             // lblCurrentMode
             // 
@@ -78,7 +78,7 @@
             lblCurrentMode.Name = "lblCurrentMode";
             lblCurrentMode.Size = new Size(666, 64);
             lblCurrentMode.TabIndex = 1;
-            lblCurrentMode.Text = "PomodoroToDo -ZizuDEV";
+            lblCurrentMode.Text = "PomodoroToDo";
             lblCurrentMode.TextAlign = ContentAlignment.MiddleCenter;
             lblCurrentMode.DoubleClick += lblCurrentMode_DoubleClick;
             // 
@@ -124,7 +124,7 @@
             splitContainer1.Panel2.Controls.Add(webViewToDo);
             splitContainer1.Panel2.Padding = new Padding(3);
             splitContainer1.Size = new Size(666, 485);
-            splitContainer1.SplitterDistance = 100;
+            splitContainer1.SplitterDistance = 98;
             splitContainer1.TabIndex = 5;
             // 
             // webViewToDo
@@ -136,8 +136,8 @@
             webViewToDo.Location = new Point(3, 3);
             webViewToDo.Margin = new Padding(0);
             webViewToDo.Name = "webViewToDo";
-            webViewToDo.Size = new Size(660, 375);
-            webViewToDo.Source = new Uri("https://to-do.live.com/tasks/AQMkADAwATM3ZmYAZS00MjNhLTZmNWItMDACLTAwCgAuAAADHznh97RuwEaTylqDMZTK3wEAiVSD-def2E_3fkwt9tLmgQACye-BYgAAAA==", UriKind.Absolute);
+            webViewToDo.Size = new Size(660, 377);
+            webViewToDo.Source = new Uri("https://to-do.live.com/tasks/lists/myday\r\n", UriKind.Absolute);
             webViewToDo.TabIndex = 4;
             webViewToDo.ZoomFactor = 1D;
             webViewToDo.NavigationCompleted += webViewToDo_NavigationCompleted;
@@ -158,7 +158,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(0, 600);
             Name = "AppForm";
-            Text = "PomodoroToDo";
+            Text = "PomodoroToDo -by ZizuDEV";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)webViewPomodoroTracker).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
@@ -174,7 +174,7 @@
         #endregion
 
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewPomodoroTracker;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tmrGetCurrentMode;
         private Label lblCurrentMode;
         private TableLayoutPanel tableLayoutPanel1;
         private ContextMenuStrip contextMenu;
