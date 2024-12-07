@@ -113,6 +113,7 @@ namespace Desktop_Pomodoro_Tracker
 
         private void ForceOtherColor_Click(object sender, EventArgs e)
         {
+            lblCurrentMode.BackColor = Color.Transparent;
             using (ColorPickerDialog colorPickerDialog = new ColorPickerDialog())
             {
                 // Establecer el color inicial como el color de fondo actual del Label.
