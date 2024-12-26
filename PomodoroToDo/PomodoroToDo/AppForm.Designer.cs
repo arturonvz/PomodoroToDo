@@ -140,7 +140,7 @@
             webViewToDo.Size = new Size(660, 269);
             webViewToDo.Source = new Uri("https://to-do.live.com/tasks/lists/myday\r\n", UriKind.Absolute);
             webViewToDo.TabIndex = 4;
-            webViewToDo.ZoomFactor = 0.8D;
+            webViewToDo.ZoomFactor = 0.9D;
             webViewToDo.NavigationCompleted += webViewToDo_NavigationCompleted;
             // 
             // contextMenu
