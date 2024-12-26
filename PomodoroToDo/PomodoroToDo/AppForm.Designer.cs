@@ -57,7 +57,7 @@
             webViewPomodoroTracker.Location = new Point(3, 3);
             webViewPomodoroTracker.Margin = new Padding(0);
             webViewPomodoroTracker.Name = "webViewPomodoroTracker";
-            webViewPomodoroTracker.Size = new Size(660, 92);
+            webViewPomodoroTracker.Size = new Size(660, 200);
             webViewPomodoroTracker.Source = new Uri("https://pomodoro-tracker.com/", UriKind.Absolute);
             webViewPomodoroTracker.TabIndex = 0;
             webViewPomodoroTracker.ZoomFactor = 0.7D;
@@ -110,6 +110,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.FixedPanel = FixedPanel.Panel1;
             splitContainer1.Location = new Point(3, 73);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
@@ -124,7 +125,7 @@
             splitContainer1.Panel2.Controls.Add(webViewToDo);
             splitContainer1.Panel2.Padding = new Padding(3);
             splitContainer1.Size = new Size(666, 485);
-            splitContainer1.SplitterDistance = 98;
+            splitContainer1.SplitterDistance = 206;
             splitContainer1.TabIndex = 5;
             // 
             // webViewToDo
@@ -136,10 +137,10 @@
             webViewToDo.Location = new Point(3, 3);
             webViewToDo.Margin = new Padding(0);
             webViewToDo.Name = "webViewToDo";
-            webViewToDo.Size = new Size(660, 377);
+            webViewToDo.Size = new Size(660, 269);
             webViewToDo.Source = new Uri("https://to-do.live.com/tasks/lists/myday\r\n", UriKind.Absolute);
             webViewToDo.TabIndex = 4;
-            webViewToDo.ZoomFactor = 1D;
+            webViewToDo.ZoomFactor = 0.8D;
             webViewToDo.NavigationCompleted += webViewToDo_NavigationCompleted;
             // 
             // contextMenu
