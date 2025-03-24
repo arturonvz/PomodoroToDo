@@ -275,12 +275,12 @@ body[data-theme=dark] .c-timer.long button {
                                     lblCurrentMode.BackColor = darkenedRed;
                                     break;
                                 case "short":
-                                    lblCurrentMode.Text = "SHORT BREAK";
+                                    lblCurrentMode.Text = "DESCANSO CORTO";
                                     this.BackColor = darkenedGreen; // Fondo oscuro para el panel
                                     lblCurrentMode.BackColor = darkenedGreen;
                                     break;
                                 case "long":
-                                    lblCurrentMode.Text = "LONG BREAK";
+                                    lblCurrentMode.Text = "DESCANSO LARGO";
                                     this.BackColor = darkenedBlue; // Fondo oscuro para el panel
                                     lblCurrentMode.BackColor = darkenedBlue;
                                     break;
